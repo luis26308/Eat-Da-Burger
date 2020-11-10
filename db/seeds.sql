@@ -1,8 +1,8 @@
-INSERT INTO burgers_db (burger_name, devoured) 
-VALUES ('Cheese burger', false);
+INSERT INTO burgers (burger_name)
+VALUES ("Cheese burger");
 
-INSERT INTO burgers_db (burger_name, devoured) 
-VALUES ('Veggie burger', false);
+INSERT INTO burgers (burger_name)
+VALUES ("Veggie burger");
 
-INSERT INTO burgers_db (burger_name, devoured) 
-VALUES ('I know why the cajun burger sings', false);
+INSERT INTO burgers (burger_name)
+VALUES ("I know why the cajun burger sings");
