@@ -17,7 +17,7 @@ function objToSql(ob) {
     for (let key in ob) {
         let value = ob[key];
 
-        if (Object.hasOWnProperty.call(ob, key)) {
+        if (Object.hasOwnProperty.call(ob, key)) {
             if (typeof value === "string" && value.indexOf(" ") >= 0) {
                 value = "'" + value + "'";
             }
@@ -30,7 +30,7 @@ function objToSql(ob) {
 }
 
 const orm = {
-    selectAll: function (tableInput, cb) {
+    all: function (tableInput, cb) {
         const queryString = "SELECT * FROM " + tableInput + ";";
         connection.query(queryString, function (err, result) {
             if (err) {
@@ -40,7 +40,7 @@ const orm = {
         });
     },
 
-    insertOne: function (table, cols, vals, cb) {
+    create: function (table, cols, vals, cb) {
         let queryString = "INSERT INTO " + table;
 
         queryString += " (";
@@ -61,13 +61,13 @@ const orm = {
         });
     },
 
-    updateOne: function (table, objColVals, condition, cb) {
+    update: function (table, objColVals, devoured, cb) {
         let queryString = "UPDATE " + table;
 
         queryString += " SET ";
         queryString += objToSql(objColVals);
         queryString += " WHERE ";
-        queryString += condition;
+        queryString += devoured;
 
         console.log(queryString);
         connection.query(queryString, function (err, result) {
